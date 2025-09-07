@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title th:text="${name} + ' — About'">About</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+<header class="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
+      <!-- Only Back button -->
+      <a href="javascript:history.back()" class="flex items-center text-sm text-neutral-600 hover:text-black">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back
+      </a>
+    </div>
+  </header>
+  
+
+  <!-- Hero -->
+  <section class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 text-center space-y-4">
+    <img th:src="@{/images/icon.jpg}" alt="Icon" class="mx-auto h-32 w-32 rounded-full object-cover border"/>
+    <h1 class="text-3xl font-semibold" th:text="${name}">Zhou Liu</h1>
+    <p class="text-neutral-700 max-w-prose mx-auto" th:text="${tagline}">
+      Backend developer focused on Java + Spring Boot—clean APIs, testability, and performance.
+    </p>
+  </section>
+
+  <!-- Content -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-10 pb-16">
+    <!-- Personal Story -->
+    <section>
+      <h2 class="text-lg font-medium border-b pb-2 mb-4">My Story</h2>
+      <p class="text-neutral-700 leading-relaxed">
+        I’m passionate about building reliable backend systems and learning how technology can solve
+        real-world problems. My journey started in operations at Seattle University and grew into
+        software engineering, where I discovered a love for designing clean APIs and writing
+        maintainable code.
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2 class="text-lg font-medium border-b pb-2 mb-4">Education</h2>
+      <div class="space-y-4 text-sm text-neutral-700">
+        <div>
+          <div class="font-medium">Seattle University</div>
+          <div>M.S. Computer Science — Seattle, WA (2023 – 2025)</div>
+        </div>
+        <div>
+          <div class="font-medium">Louisiana State University</div>
+          <div>B.S. Sport Administration — Baton Rouge, LA (2017 – 2021)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section>
+        <h2 class="text-lg font-medium border-b pb-2 mb-4">Contact</h2>
+        <div class="flex flex-wrap gap-3 text-sm">
+        <a class="border px-3 py-1 rounded hover:bg-neutral-100" href="mailto:zliu2@seattleu.edu">Email</a>
+        <a class="border px-3 py-1 rounded hover:bg-neutral-100" href="https://linkedin.com/in/zliu2" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="border px-3 py-1 rounded hover:bg-neutral-100" href="https://github.com/zliu46" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+    </section>
+  </main>
+
+  <div th:replace="fragments/footer :: footer"></div>
+
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

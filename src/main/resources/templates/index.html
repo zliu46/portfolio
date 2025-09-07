@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-black">
+
+  <!-- Hero -->
+  <section class="border-b">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="md:col-span-2 space-y-3">
+          <h1 class="text-3xl md:text-4xl tracking-tight">Zhou Liu</h1>
+          <p class="text-neutral-600 max-w-prose">
+            Backend developer focused on Java + Spring Boot, with a soft spot for clean APIs,
+            testability, and performance.
+          </p>
+        </div>
+
+        <!-- Circles -->
+        <div class="flex md:justify-end gap-10 text-center">
+          <!-- Experience -->
+          <a href="#experience" class="group flex flex-col items-center">
+            <div class="flex items-center justify-center w-16 h-16 border rounded-full group-hover:bg-neutral-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m2 0a2 2 0 012 2v4a2 2 0 01-2 2H7a2 2 0 01-2-2v-4a2 2 0 012-2m10 0V9a2 2 0 00-2-2h-2V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2H5a2 2 0 00-2 2v3h14z"/>
+              </svg>
+            </div>
+            <span class="mt-2 text-sm">Experience</span>
+          </a>
+
+          <!-- Projects (link to section on this page) -->
+          <a href="#projects" class="group flex flex-col items-center">
+            <div class="flex items-center justify-center w-16 h-16 border rounded-full group-hover:bg-neutral-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h4v4H4V6zM10 6h4v4h-4V6zM16 6h4v4h-4V6zM4 12h4v4H4v-4zM10 12h4v4h-4v-4zM16 12h4v4h-4v-4z"/>
+              </svg>
+            </div>
+            <span class="mt-2 text-sm">Projects</span>
+          </a>
+
+          <!-- About -->
+          <a href="/about" class="group flex flex-col items-center">
+            <div class="flex items-center justify-center w-16 h-16 border rounded-full group-hover:bg-neutral-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A10.97 10.97 0 0112 15c2.21 0 4.247.64 5.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <span class="mt-2 text-sm">About</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8" id="experience">
+    <h2 class="text-lg font-medium border-b pb-2 mb-4">Experience</h2>
+    <div id="experience-list" class="space-y-6"></div>
+  </section>
+
+  <!-- Projects -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8" id="projects">
+    <h2 class="text-lg font-medium border-b pb-2 mb-4">Projects</h2>
+    <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- cards injected by app.js -->
+    </div>
+  </section>
+
+  <!-- Scripts (load once, at the end) -->
+  <script src="/js/app.js"></script>
+  <script src="/js/experience.js"></script>
+  <!-- If you actually have Education, add its section above and then this: -->
+  <!-- <script src="/js/education.js"></script> -->
+
+  <!-- Smooth scroll for in-page anchors -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const el = document.querySelector(a.getAttribute('href'));
+        if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+  </script>
+
+  <div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>
